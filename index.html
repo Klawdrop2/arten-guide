@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statut Of Our Tools !</title>
+  <style>
+    :root {
+      --bg: #0f0f10;
+      --card-bg: #1a1b1e;
+      --primary: #00fff1;
+      --online-color: #29f37d;
+      --updating-color: #ffcc00;
+      --text: #e0e0e0;
+      --radius: 16px;
+      --shadow: 0 8px 20px #00fff24f;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .dashboard {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .status-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 132, 255, 0.15);
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .status {
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    .dot.online {
+      background-color: var(--online-color);
+    }
+
+    .dot.updating {
+      background-color: var(--updating-color);
+    }
+
+    .text-updating {
+      color: var(--updating-color);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.4);
+        opacity: 0.6;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 18px;
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .card h2 {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="header">
+      <h1>Statut Of Tools</h1>
+    </div>
+    <div class="status-grid">
+      <div class="card">
+        <h2>VALORANT STANDARD</h2>
+        <div class="status"><span class="dot online"></span>Online and Undetect</div>
+      </div>
+      <div class="card">
+        <h2>VALORANT VIP</h2>
+        <div class="status"><span class="dot online"></span>Online and Undetect</div>
+      </div>
+      <div class="card">
+        <h2>Perm Woofer</h2>
+        <div class="status"><span class="dot online"></span>Online and Undetect</div>
+      </div>
+      <div class="card">
+        <h2>Valorant Unlocker</h2>
+        <div class="status"><span class="dot updating"></span><span class="text-updating">Updating...</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
