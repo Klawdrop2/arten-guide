@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arten Software - Configuration Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div id="product-selection" class="screen active">
+            <div class="header">
+                <div class="logo">
+                    <h1>Arten Software</h1>
+                    <span class="subtitle">Configuration Guide</span>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="title-section">
+                    <h2>System Configuration</h2>
+                    <p>Select your product to get step-by-step configuration instructions</p>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="product-card" data-product="r6">
+                        <div class="product-header">
+                            <div class="product-icon">R6</div>
+                            <div class="product-info">
+                                <h3>R6 Siege</h3>
+                                <span>Crusader</span>
+                            </div>
+                        </div>
+                        <div class="product-status">Ready</div>
+                    </div>
+                    
+                    <div class="product-card" data-product="valorant">
+                        <div class="product-header">
+                            <div class="product-icon">VAL</div>
+                            <div class="product-info">
+                                <h3>Valorant</h3>
+                                <span>Internal</span>
+                            </div>
+                        </div>
+                        <div class="product-status">Ready</div>
+                    </div>
+                    
+                    <div class="product-card" data-product="fortnite">
+                        <div class="product-header">
+                            <div class="product-icon">FN</div>
+                            <div class="product-info">
+                                <h3>Fortnite</h3>
+                                <span>Ultimate</span>
+                            </div>
+                        </div>
+                        <div class="product-status">Ready</div>
+                    </div>
+                    
+                    <div class="product-card" data-product="bo6">
+                        <div class="product-header">
+                            <div class="product-icon">BO6</div>
+                            <div class="product-info">
+                                <h3>Black Ops 6</h3>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="product-status">Ready</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="guide-screen" class="screen">
+            <div class="header">
+                <button id="back-btn" class="back-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back
+                </button>
+                <div class="guide-title">
+                    <h1 id="guide-title">Configuration Guide</h1>
+                    <div class="progress">
+                        <span id="progress-text">Step 1 of 6</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="step-container">
+                    <div class="step-header">
+                        <div class="step-number" id="step-number">01</div>
+                        <div class="step-info">
+                            <h2 id="step-title">Step Title</h2>
+                            <p id="step-description">Step description...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-content">
+                        <div class="instructions">
+                            <h3>Instructions</h3>
+                            <ol id="instructions-list">
+                            </ol>
+                        </div>
+                        
+                        <div class="downloads" id="download-section" style="display: none;">
+                            <h3>Downloads</h3>
+                            <div class="download-links" id="download-links">
+                            </div>
+                        </div>
+                        
+                        <div class="warning" id="step-warning" style="display: none;">
+                            <div class="warning-icon">⚠</div>
+                            <div class="warning-content">
+                                <h4>Warning</h4>
+                                <p id="warning-text">Warning message...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="actions">
+                        <button id="validate-btn" class="btn primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20,6 9,17 4,12"/>
+                            </svg>
+                            Complete
+                        </button>
+                        <button id="next-btn" class="btn secondary" style="display: none;">
+                            Next
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="completion-screen" class="screen">
+            <div class="header">
+                <div class="logo">
+                    <h1>Arten Software</h1>
+                    <span class="subtitle">Configuration Complete</span>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="completion-container">
+                    <div class="completion-icon">✓</div>
+                    <h2>Configuration Complete</h2>
+                    <p>Your system is now properly configured for <span id="completed-product"></span></p>
+                    
+                    <div class="summary" id="completion-summary">
+                    </div>
+                    
+                    <button id="restart-btn" class="btn primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="1,4 1,10 7,10"/>
+                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                        </svg>
+                        Start Over
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
