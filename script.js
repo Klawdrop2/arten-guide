@@ -1,357 +1,18 @@
-const guides = {
-    r6: {
-        name: "R6 Siege - Crusader",
-        steps: [
-            {
-                title: "Remove Anti-Cheat Software",
-                description: "Remove Faceit and Riot Vanguard anti-cheat software from your system.",
-                instructions: [
-                    "Open Control Panel and go to 'Programs and Features'",
-                    "Search for 'Faceit' in the list of installed programs",
-                    "Right-click on Faceit and select 'Uninstall'",
-                    "Follow the uninstallation wizard to completely remove it",
-                    "Search for 'Riot Vanguard' in the list",
-                    "Right-click on Riot Vanguard and select 'Uninstall'",
-                    "Restart your computer after uninstalling both programs",
-                    "Verify that both programs are completely removed"
-                ],
-                warning: "Make sure to completely remove all traces of these anti-cheat programs to avoid conflicts."
-            },
-            {
-                title: "Disable All Antivirus Software",
-                description: "Manually disable all third-party antivirus software on your system.",
-                instructions: [
-                    "Open your antivirus software (Avast, Norton, McAfee, etc.)",
-                    "Look for 'Real-time Protection' or 'Live Protection' settings",
-                    "Disable real-time protection temporarily",
-                    "Add the Crusader folder to antivirus exclusions",
-                    "Disable any firewall features if present",
-                    "Repeat this process for any other antivirus software installed",
-                    "Note: Remember to re-enable protection after use"
-                ],
-                warning: "Keep track of which antivirus software you've disabled so you can re-enable them later."
-            },
-            {
-                title: "Disable Windows Defender with DControl",
-                description: "Download and use DControl to completely disable Windows Defender.",
-                instructions: [
-                    "Download DControl from the provided link",
-                    "Extract the downloaded file to a folder",
-                    "Run DControl as Administrator (right-click → Run as Administrator)",
-                    "Click on 'Disable Windows Defender' option",
-                    "Follow the on-screen instructions to disable all Defender features",
-                    "Restart your computer when prompted",
-                    "Verify that Windows Defender is completely disabled"
-                ],
-                downloads: [
-                    {
-                        name: "DControl - Windows Defender Disabler",
-                        url: "https://drive.usercontent.google.com/download?id=1jxmKjN820qP_cLZLgbeBi-aP5DUbROle&export=download",
-                        description: "Tool to completely disable Windows Defender"
-                    }
-                ],
-                warning: "This tool modifies system settings. Use with caution and only for legitimate purposes."
-            },
-            {
-                title: "Disable Secure Boot",
-                description: "Disable Secure Boot in your BIOS/UEFI settings.",
-                instructions: [
-                    "Restart your computer and enter BIOS/UEFI (usually F2, F12, or Delete key)",
-                    "Navigate to the 'Security' or 'Boot' tab",
-                    "Find 'Secure Boot' option",
-                    "Set Secure Boot to 'Disabled'",
-                    "Save changes and exit BIOS",
-                    "Restart your computer",
-                    "Verify Secure Boot is disabled in Windows"
-                ]
-            },
-            {
-                title: "Enable Virtualization",
-                description: "Enable virtualization features in your BIOS.",
-                instructions: [
-                    "Enter BIOS/UEFI settings",
-                    "Look for 'Intel VT-x' or 'AMD-V' option",
-                    "Enable this option",
-                    "Look for 'Intel VT-d' or 'AMD IOMMU' option",
-                    "Enable this option as well",
-                    "Save changes and exit BIOS",
-                    "Restart your computer"
-                ]
-            },
-            {
-                title: "Final Verification",
-                description: "Verify that all configurations are properly set.",
-                instructions: [
-                    "Check that Faceit and Riot Vanguard are completely removed",
-                    "Verify all antivirus software is disabled",
-                    "Confirm Windows Defender is disabled via DControl",
-                    "Check that Secure Boot is disabled",
-                    "Verify virtualization is enabled",
-                    "Launch Crusader and test functionality",
-                    "Monitor for any error messages or conflicts"
-                ]
-            }
-        ]
-    },
-    valorant: {
-        name: "Valorant - Internal",
-        steps: [
-            {
-                title: "Disable All Antivirus Software",
-                description: "Manually disable all third-party antivirus software.",
-                instructions: [
-                    "Open your antivirus software",
-                    "Disable real-time protection",
-                    "Add Valorant to exclusions",
-                    "Disable firewall features",
-                    "Repeat for all installed antivirus programs"
-                ],
-            },
-            {
-                title: "Disable Windows Defender with DControl",
-                description: "Use DControl to completely disable Windows Defender.",
-                instructions: [
-                    "Download DControl from the provided link",
-                    "Extract and run as Administrator",
-                    "Click 'Disable Windows Defender'",
-                    "Follow on-screen instructions",
-                    "Restart when prompted",
-                    "Verify Defender is disabled"
-                ],
-                downloads: [
-                    {
-                        name: "DControl - Windows Defender Disabler",
-                        url: "https://drive.usercontent.google.com/download?id=1jxmKjN820qP_cLZLgbeBi-aP5DUbROle&export=download",
-                        description: "Tool to completely disable Windows Defender"
-                    }
-                ],
-                warning: "This tool modifies system settings. Use with caution."
-            },
-            {
-                title: "Enable Secure Boot",
-                description: "Enable Secure Boot in BIOS for Valorant Internal.",
-                instructions: [
-                    "Enter BIOS/UEFI settings",
-                    "Navigate to 'Security' or 'Boot' tab",
-                    "Find 'Secure Boot' option",
-                    "Set to 'Enabled'",
-                    "Save and exit BIOS",
-                    "Restart computer"
-                ]
-            },
-            {
-                title: "Enable Virtualization",
-                description: "Enable virtualization features in BIOS.",
-                instructions: [
-                    "Enter BIOS settings",
-                    "Enable 'Intel VT-x' or 'AMD-V'",
-                    "Enable 'Intel VT-d' or 'AMD IOMMU'",
-                    "Save and restart"
-                ]
-            },
-            {
-                title: "Disable Hyper-V",
-                description: "Disable Hyper-V via PowerShell.",
-                instructions: [
-                    "Open PowerShell as Administrator",
-                    "Run: 'Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All'",
-                    "Restart computer when prompted",
-                    "Verify Hyper-V is disabled"
-                ]
-            },
-            {
-                title: "Final Configuration",
-                description: "Complete the Valorant Internal setup.",
-                instructions: [
-                    "Verify all antivirus software is disabled",
-                    "Confirm Windows Defender is disabled",
-                    "Check Secure Boot is enabled",
-                    "Verify virtualization is enabled",
-                    "Test Valorant Internal functionality"
-                ]
-            }
-        ]
-    },
-    fortnite: {
-        name: "Fortnite - Ultimate",
-        steps: [
-            {
-                title: "Disable All Antivirus Software",
-                description: "Manually disable all third-party antivirus software.",
-                instructions: [
-                    "Open your antivirus software",
-                    "Disable real-time protection",
-                    "Add Fortnite to exclusions",
-                    "Disable firewall features",
-                    "Repeat for all installed antivirus programs"
-                ],
-            },
-            {
-                title: "Disable Windows Defender with DControl",
-                description: "Use DControl to completely disable Windows Defender.",
-                instructions: [
-                    "Download DControl from the provided link",
-                    "Extract and run as Administrator",
-                    "Click 'Disable Windows Defender'",
-                    "Follow on-screen instructions",
-                    "Restart when prompted",
-                    "Verify Defender is disabled"
-                ],
-                downloads: [
-                    {
-                        name: "DControl - Windows Defender Disabler",
-                        url: "https://drive.usercontent.google.com/download?id=1jxmKjN820qP_cLZLgbeBi-aP5DUbROle&export=download",
-                        description: "Tool to completely disable Windows Defender"
-                    }
-                ],
-                warning: "This tool modifies system settings. Use with caution."
-            },
-            {
-                title: "Download and Install Action!",
-                description: "Download and install Action! Game Recorder before launching the game.",
-                instructions: [
-                    "Download Action! from the official website",
-                    "Run the installer as Administrator",
-                    "Follow the installation wizard",
-                    "Complete the installation process",
-                    "Launch Action! Game Recorder",
-                    "Configure settings if needed",
-                    "Keep Action! running in the background"
-                ],
-                downloads: [
-                    {
-                        name: "Action! Game Recorder",
-                        url: "https://actionrecorder.com/fr",
-                        description: "Professional game recording software"
-                    }
-                ]
-            },
-            {
-                title: "Disable Secure Boot",
-                description: "Disable Secure Boot in BIOS settings.",
-                instructions: [
-                    "Enter BIOS/UEFI settings",
-                    "Navigate to 'Security' or 'Boot' tab",
-                    "Find 'Secure Boot' option",
-                    "Set to 'Disabled'",
-                    "Save and exit BIOS",
-                    "Restart computer"
-                ]
-            },
-            {
-                title: "Enable Virtualization",
-                description: "Enable virtualization features in BIOS.",
-                instructions: [
-                    "Enter BIOS settings",
-                    "Enable 'Intel VT-x' or 'AMD-V'",
-                    "Enable 'Intel VT-d' or 'AMD IOMMU'",
-                    "Save and restart"
-                ]
-            },
-            {
-                title: "Launch and Test",
-                description: "Launch Fortnite Ultimate with Action! running.",
-                instructions: [
-                    "Ensure Action! is running in the background",
-                    "Launch Fortnite Ultimate",
-                    "Test all functionality",
-                    "Verify Action! is recording properly",
-                    "Check for any conflicts or errors",
-                    "Monitor system performance"
-                ]
-            }
-        ]
-    },
-    bo6: {
-        name: "Black Ops 6 - Advanced Configuration",
-        steps: [
-            {
-                title: "Enable Secure Boot",
-                description: "Enable Secure Boot in your BIOS/UEFI settings.",
-                instructions: [
-                    "Restart your computer and enter BIOS/UEFI",
-                    "Navigate to the 'Security' or 'Boot' tab",
-                    "Find 'Secure Boot' option",
-                    "Set Secure Boot to 'Enabled'",
-                    "Save changes and exit BIOS",
-                    "Restart your computer",
-                    "Verify Secure Boot is enabled in Windows"
-                ]
-            },
-            {
-                title: "Disable All Antivirus Software",
-                description: "Manually disable all third-party antivirus software.",
-                instructions: [
-                    "Open your antivirus software",
-                    "Disable real-time protection",
-                    "Add Black Ops 6 to exclusions",
-                    "Disable firewall features",
-                    "Repeat for all installed antivirus programs"
-                ],
-            },
-            {
-                title: "Disable Windows Defender with DControl",
-                description: "Use DControl to completely disable Windows Defender.",
-                instructions: [
-                    "Download DControl from the provided link",
-                    "Extract and run as Administrator",
-                    "Click 'Disable Windows Defender'",
-                    "Follow on-screen instructions",
-                    "Restart when prompted",
-                    "Verify Defender is disabled"
-                ],
-                downloads: [
-                    {
-                        name: "DControl - Windows Defender Disabler",
-                        url: "https://drive.usercontent.google.com/download?id=1jxmKjN820qP_cLZLgbeBi-aP5DUbROle&export=download",
-                        description: "Tool to completely disable Windows Defender"
-                    }
-                ],
-                warning: "This tool modifies system settings. Use with caution."
-            },
-            {
-                title: "Enable Virtualization",
-                description: "Enable virtualization features in your BIOS.",
-                instructions: [
-                    "Enter BIOS/UEFI settings",
-                    "Look for 'Intel VT-x' or 'AMD-V' option",
-                    "Enable this option",
-                    "Look for 'Intel VT-d' or 'AMD IOMMU' option",
-                    "Enable this option as well",
-                    "Save changes and exit BIOS",
-                    "Restart your computer"
-                ]
-            },
-            {
-                title: "Disable Kernel Isolation",
-                description: "Disable Kernel Isolation in Windows security settings.",
-                instructions: [
-                    "Open Windows Security (Windows Defender Security Center)",
-                    "Go to 'Device security'",
-                    "Click on 'Core isolation details'",
-                    "Turn OFF 'Memory integrity'",
-                    "Restart your computer when prompted",
-                    "Verify Kernel Isolation is disabled",
-                    "Check that the setting remains disabled after restart"
-                ],
-                warning: "Disabling Kernel Isolation reduces system security. Only do this if necessary for your application."
-            },
-            {
-                title: "Final Verification",
-                description: "Verify all configurations are properly set for Black Ops 6.",
-                instructions: [
-                    "Check that Secure Boot is enabled",
-                    "Verify all antivirus software is disabled",
-                    "Confirm Windows Defender is disabled",
-                    "Check that virtualization is enabled",
-                    "Verify Kernel Isolation is disabled",
-                    "Launch Black Ops 6 and test functionality",
-                    "Monitor for any error messages or performance issues"
-                ]
-            }
-        ]
+function getGuides() {
+    const currentLang = (typeof languageManager !== 'undefined') 
+        ? languageManager.getCurrentLanguage() 
+        : 'en';
+    
+    return guidesTranslations[currentLang] || guidesTranslations['en'];
+}
+
+
+function refreshGuideLanguage() {
+    if (currentProduct && guideScreen.classList.contains('active')) {
+        guideTitle.textContent = getGuides()[currentProduct].name;
+        loadStep();
     }
-};
+}
 
 let currentProduct = null;
 let currentStep = 0;
@@ -404,7 +65,7 @@ function initializeButtons() {
 }
 
 function startGuide() {
-    if (!currentProduct || !guides[currentProduct]) {
+    if (!currentProduct || !getGuides()[currentProduct]) {
         console.error('Product not found');
         return;
     }
@@ -413,12 +74,12 @@ function startGuide() {
     completedSteps = [];
     productSelection.classList.remove('active');
     guideScreen.classList.add('active');
-    guideTitle.textContent = guides[currentProduct].name;
+    guideTitle.textContent = getGuides()[currentProduct].name;
     loadStep();
 }
 
 function loadStep() {
-    const guide = guides[currentProduct];
+    const guide = getGuides()[currentProduct];
     const step = guide.steps[currentStep];
     
     if (!step) {
@@ -471,15 +132,30 @@ function loadStep() {
     
     const progress = ((currentStep + 1) / guide.steps.length) * 100;
     progressFill.style.width = progress + '%';
+    
+    // Use translation for progress text
+    if (typeof languageManager !== 'undefined') {
+        const progressTranslation = languageManager.getTranslation('stepOf', {
+            current: currentStep + 1,
+            total: guide.steps.length
+        });
+        progressText.textContent = progressTranslation;
+    } else {
     progressText.textContent = `Step ${currentStep + 1} of ${guide.steps.length}`;
+    }
     
     validateBtn.style.display = 'block';
     validateBtn.disabled = false;
+    // Use translation for complete button
+    const completeText = (typeof languageManager !== 'undefined') 
+        ? languageManager.getTranslation('complete') 
+        : 'Complete';
+    
     validateBtn.innerHTML = `
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="20,6 9,17 4,12"/>
         </svg>
-        Complete
+        <span data-translate="complete">${completeText}</span>
     `;
     nextBtn.style.display = 'none';
 }
@@ -487,11 +163,17 @@ function loadStep() {
 function validateStep() {
     completedSteps.push(currentStep);
     validateBtn.disabled = true;
+    
+    // Use translation for completed button
+    const completedText = (typeof languageManager !== 'undefined') 
+        ? languageManager.getTranslation('completed') 
+        : 'Completed';
+    
     validateBtn.innerHTML = `
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="20,6 9,17 4,12"/>
         </svg>
-        Completed
+        <span data-translate="completed">${completedText}</span>
     `;
     nextBtn.style.display = 'inline-flex';
 }
@@ -499,7 +181,7 @@ function validateStep() {
 function nextStep() {
     currentStep++;
     
-    if (currentStep < guides[currentProduct].steps.length) {
+    if (currentStep < getGuides()[currentProduct].steps.length) {
         loadStep();
     } else {
         showCompletion();
@@ -509,13 +191,32 @@ function nextStep() {
 function showCompletion() {
     guideScreen.classList.remove('active');
     completionScreen.classList.add('active');
-    completedProduct.textContent = guides[currentProduct].name;
+    
+    // Use translation for system configured message
+    if (typeof languageManager !== 'undefined') {
+        const configuredText = languageManager.getTranslation('systemConfigured', {
+            product: getGuides()[currentProduct].name
+        });
+        // Find the paragraph with completed product info and set its content
+        const configuredP = document.querySelector('#completion-screen p');
+        if (configuredP) {
+            configuredP.innerHTML = configuredText;
+        }
+    } else {
+        completedProduct.textContent = getGuides()[currentProduct].name;
+    }
     
     const summary = document.createElement('div');
-    summary.innerHTML = '<h3>Completed Steps:</h3><ul></ul>';
+    
+    // Use translation for completed steps header
+    const completedStepsText = (typeof languageManager !== 'undefined') 
+        ? languageManager.getTranslation('completedSteps') 
+        : 'Completed Steps:';
+    
+    summary.innerHTML = `<h3>${completedStepsText}</h3><ul></ul>`;
     const ul = summary.querySelector('ul');
     
-    guides[currentProduct].steps.forEach((step, index) => {
+    getGuides()[currentProduct].steps.forEach((step, index) => {
         const li = document.createElement('li');
         li.textContent = step.title;
         ul.appendChild(li);
